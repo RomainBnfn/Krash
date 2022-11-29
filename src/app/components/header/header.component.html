@@ -1,0 +1,46 @@
+<mat-toolbar *ngIf="!hidden" color="primary" class="nav-bar">
+    <ul *ngIf="isAuth" class="list-pages list-unstyled">
+        <li>
+            <a routerLink="/admin">
+                <button mat-mini-fab color="basic" aria-label="Home Icon">
+                    <mat-icon
+                        aria-hidden="false"
+                        aria-label="Example home icon"
+                    >
+                        settings
+                    </mat-icon>
+                </button>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/view">
+                <button mat-mini-fab color="basic" aria-label="Home Icon">
+                    <mat-icon
+                        aria-hidden="false"
+                        aria-label="Example home icon"
+                    >
+                        dashboard
+                    </mat-icon>
+                </button>
+            </a>
+        </li>
+    </ul>
+
+    <div class="title-div">
+        <span class="title-span"> {{ pageName }}</span>
+    </div>
+    <div>
+        <button
+            *ngIf="isAuth"
+            mat-mini-fab
+            color="basic"
+            aria-label="Home Icon"
+            (click)="clickOnLogOut()"
+        >
+            <mat-icon aria-hidden="false" aria-label="Example home icon">
+                logout
+            </mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+<br />
