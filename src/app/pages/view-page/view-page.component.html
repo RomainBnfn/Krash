@@ -1,26 +1,28 @@
-<div id="page-view-div">
+<app-krash-page [title]="'VIEW'">
+    <div id="page-view-div">
 
-    <div class="view-div">
-        <!---->
-        <app-drink-list></app-drink-list>
-        <!---->
-        <div class="graph-div">
-            <app-krash-icon *ngIf="isInKrash"></app-krash-icon>
+        <div class="view-div">
+            <!---->
+            <app-drink-list></app-drink-list>
+            <!---->
+            <div class="graph-div">
+                <app-krash-icon *ngIf="isInKrash"></app-krash-icon>
 
-            <mat-card class="graph-card">
-                <mat-card-content>
-                    <app-krash-graph></app-krash-graph>
-                </mat-card-content>
+                <mat-card class="graph-card">
+                    <mat-card-content>
+                        <app-krash-graph></app-krash-graph>
+                    </mat-card-content>
+                </mat-card>
+
+                <app-krash-icon *ngIf="isInKrash" [isRight]="true"></app-krash-icon>
+            </div>
+            <h2 *ngIf="isInKrash">Un krash est un cours !</h2>
+            <mat-card class="logo-div">
+                <img
+                    src="../../../assets/images/logo/logo-i2c.png"
+                    alt="Logo d'i2c"
+                />
             </mat-card>
-
-            <app-krash-icon *ngIf="isInKrash" [isRight]="true"></app-krash-icon>
         </div>
-        <h2 *ngIf="isInKrash">Un krach est un cours !</h2>
-        <mat-card class="logo-div">
-            <img
-                src="../../../assets/images/logo/logo-i2c.png"
-                alt="Logo d'i2c"
-            />
-        </mat-card>
     </div>
-</div>
+</app-krash-page>

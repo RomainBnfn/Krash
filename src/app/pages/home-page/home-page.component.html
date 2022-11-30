@@ -1,14 +1,16 @@
-<div class="page-div">
-    <div *ngIf="!isAuth" class="no-auth-div">
-        <app-login-form *ngIf="displayedForm == 'login'"></app-login-form>
-        <app-register-form
-            *ngIf="displayedForm == 'register'"
-        ></app-register-form>
-        <button mat-button color="primary" (click)="switchForm()">
-            {{ switchBtnText }}
-        </button>
+<app-krash-page [title]="'HOME'">
+    <div class="page-div">
+        <div *ngIf="!isAuth" class="no-auth-div">
+            <app-login-form *ngIf="displayedForm == 'login'"></app-login-form>
+            <app-register-form
+                *ngIf="displayedForm == 'register'"
+            ></app-register-form>
+            <button mat-button color="primary" (click)="switchForm()">
+                {{ switchBtnText }}
+            </button>
+        </div>
+        <div *ngIf="isAuth" class="auth-div">
+            <h1>Bienvenue !</h1>
+        </div>
     </div>
-    <div *ngIf="isAuth" class="auth-div">
-        <h1>Bienvenue !</h1>
-    </div>
-</div>
+</app-krash-page>

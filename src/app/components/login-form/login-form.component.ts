@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import {
     AbstractControl,
     FormBuilder,
@@ -13,7 +13,7 @@ import { AuthService } from "src/app/services/auth.service";
     templateUrl: "./login-form.component.html",
     styleUrls: ["./login-form.component.scss"],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
     loginForm: FormGroup;
     hidePassword = true;
 
@@ -27,8 +27,6 @@ export class LoginFormComponent implements OnInit {
             password: ["", [Validators.required]],
         });
     }
-
-    ngOnInit(): void {}
 
     onSubmit(): void {
         const email = this.email?.value;

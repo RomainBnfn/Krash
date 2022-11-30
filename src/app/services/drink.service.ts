@@ -230,38 +230,38 @@ export class DrinkService {
             let result = this.drinkSeriesData.filter(
                 (data: DrinkSeriesData) => data.name == drink.name
             );
-            let drinkSerieData: DrinkSeriesData;
+            let drinkSeriesData: DrinkSeriesData;
             if (result && result.length == 1) {
                 // Old
-                drinkSerieData = result[0];
+                drinkSeriesData = result[0];
             } else {
                 // New one
-                drinkSerieData = {
+                drinkSeriesData = {
                     name: drink.name,
                     series: [],
                 };
                 this.drinkSeriesData = [
                     ...this.drinkSeriesData,
-                    drinkSerieData,
+                    drinkSeriesData,
                 ];
             }
             //
-            drinkSerieData.series = [
-                ...drinkSerieData.series,
+            drinkSeriesData.series = [
+                ...drinkSeriesData.series,
                 { name: date, value: price },
             ];
         }
         //
         let i = 0;
         for (let index in this.drinkSeriesData) {
-            let drinkSerieData: DrinkSeriesData = this.drinkSeriesData[index];
+            let drinkSeriesData: DrinkSeriesData = this.drinkSeriesData[index];
 
-            if (drinkSerieData.series.length == 0) {
+            if (drinkSeriesData.series.length == 0) {
                 this.drinkSeriesData.splice(i, 1);
                 continue;
             }
             let timespanBetweenPointAndNow =
-                Date.now() - drinkSerieData.series[0].name.getTime();
+                Date.now() - drinkSeriesData.series[0].name.getTime();
             if (timespanBetweenPointAndNow > this.graphService.graphTimespan) {
                 //
                 this.drinkSeriesData[index].series.shift();
@@ -275,7 +275,7 @@ export class DrinkService {
         if (this.playSound) {
             console.log("Starting audio...");
             let audio = new Audio();
-            audio.src = "../../../assets/sounds/krach.wav";
+            audio.src = "../../../assets/sounds/krash.wav";
             audio.load();
             await audio.play();
         }

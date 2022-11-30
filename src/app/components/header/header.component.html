@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="!hidden" color="primary" class="nav-bar">
+<mat-toolbar color="primary" class="nav-bar">
     <ul *ngIf="isAuth" class="list-pages list-unstyled">
         <li>
             <a routerLink="/admin">
@@ -27,7 +27,7 @@
     </ul>
 
     <div class="title-div">
-        <span class="title-span"> {{ pageName }}</span>
+        <span class="title-span"> {{ title }}</span>
     </div>
     <div>
         <button

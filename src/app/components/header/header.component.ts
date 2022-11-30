@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth.service";
 
@@ -7,14 +7,10 @@ import { AuthService } from "src/app/services/auth.service";
     templateUrl: "./header.component.html",
     styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent implements OnInit {
-    hidden: boolean;
+export class HeaderComponent {
+    @Input() title: string = "";
 
-    constructor(private router: Router, private authService: AuthService) {
-        this.hidden = false;
-    }
-
-    ngOnInit(): void {}
+    constructor(private router: Router, private authService: AuthService) {}
 
     clickOnLogOut() {
         this.authService.signOut();
@@ -23,18 +19,6 @@ export class HeaderComponent implements OnInit {
 
     public get url(): string {
         return this.router.url;
-    }
-
-    public get pageName(): string {
-        switch (this.url) {
-            case "/":
-                return "Accueil";
-            case "/admin":
-                return "Administration";
-            case "/view":
-                return "Krach Boursier - " + "i2c"; // + Name
-        }
-        return "";
     }
 
     public get isAuth(): boolean {
