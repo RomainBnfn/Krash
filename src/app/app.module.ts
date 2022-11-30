@@ -58,9 +58,13 @@ import { RegisterFormComponent } from "./components/register-form/register-form.
 import { KrashIconComponent } from "./components/krash-icon/krash-icon.component";
 import { FireDatabaseService } from "./services/fire-database.service";
 import { AdminOptionsComponent } from "./components/admin-options/admin-options.component";
+import { IconsRefComponent } from "./components/icons-ref/icons-ref.component";
+import { KrashPageComponent } from "./components/krash-page/krash-page.component";
 
 @NgModule({
     declarations: [
+        KrashPageComponent,
+        IconsRefComponent,
         AppComponent,
         KrashGraphComponent,
         ViewPageComponent,

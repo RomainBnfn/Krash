@@ -1,45 +1,47 @@
-<div class="admin-page-div">
-    <!-- Gestion des Boisons -->
-    <div class="drink-div">
-        <h1>Gestion des boissons</h1>
-        <div class="action-div">
-            <button
-                mat-raised-button
-                color="primary"
-                (click)="clickAddDrinkBtn()"
-            >
-                Ajouter une boisson
-            </button>
+<app-krash-page [title]="'ADMIN'">
+    <div class="admin-page-div">
+        <!-- Gestion des Boisons -->
+        <div class="drink-div">
+            <h1>Gestion des boissons</h1>
+            <div class="action-div">
+                <button
+                    mat-raised-button
+                    color="primary"
+                    (click)="clickAddDrinkBtn()"
+                >
+                    Ajouter une boisson
+                </button>
 
-            <button
-                mat-raised-button
-                color="accent"
-                (click)="clickStartEndKrashBtn()"
-            >
-                {{ krashBtnText }}
-            </button>
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="clickStartEndKrashBtn()"
+                >
+                    {{ krashBtnText }}
+                </button>
 
-            <div class="krash-state-div">
+                <div class="krash-state-div">
                 <span
                     class="krash-state"
                     [style]="'background-color: ' + krashColor + ';'"
                 ></span>
-                <span>{{ krashState }}</span>
+                    <span>{{ krashState }}</span>
+                </div>
             </div>
+            <br />
+            <app-drink-table
+                (onClickOnEditBtn)="clickEditDrinkBtn($event)"
+                (onClickOnDeleteBtn)="clickDeleteDrinkBtn($event)"
+            >
+            </app-drink-table>
         </div>
+
         <br />
-        <app-drink-table
-            (onClickOnEditBtn)="clickEditDrinkBtn($event)"
-            (onClickOnDeleteBtn)="clickDeleteDrinkBtn($event)"
-        >
-        </app-drink-table>
-    </div>
 
-    <br />
-
-    <!-- Options -->
-    <div class="option-div">
-        <h1>Options globales</h1>
-        <app-admin-options></app-admin-options>
+        <!-- Options -->
+        <div class="option-div">
+            <h1>Options globales</h1>
+            <app-admin-options></app-admin-options>
+        </div>
     </div>
-</div>
+</app-krash-page>
