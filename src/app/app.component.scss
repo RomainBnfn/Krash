@@ -1,9 +1,5 @@
 @import "./style/colors";
 
-#app-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: stretch;
+:host {
     background-color: $color-background;
 }

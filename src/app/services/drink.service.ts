@@ -7,9 +7,9 @@ import {
     ref,
     update,
 } from "@angular/fire/database";
-import DrinkData from "../models/drink-data";
-import DrinkSeriesData from "../models/drink-series-data";
-import Period from "../models/period";
+import DrinkData from "../models/drinkData.model";
+import DrinkSeriesData from "../models/drinkSeriesData.model";
+import Period from "../models/period.model";
 import { FireDatabaseService } from "./fire-database.service";
 import { GraphService } from "./graph.service";
 

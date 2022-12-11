@@ -3,7 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { DeleteDrinkDialogComponent } from "src/app/dialogs/delete-drink-dialog/delete-drink-dialog.component";
 import { EditAddDrinkDialogComponent } from "src/app/dialogs/edit-add-drink-dialog/edit-add-drink-dialog.component";
 import { StartEndKrashDialogComponent } from "src/app/dialogs/start-end-krash-dialog/start-end-krash-dialog.component";
-import DrinkData from "src/app/models/drink-data";
+import DrinkData from "src/app/models/drinkData.model";
 import { DrinkService } from "src/app/services/drink.service";
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import DrinkData from "src/app/models/drink-data";
+import DrinkData from "src/app/models/drinkData.model";
 
 @Component({
     selector: "app-drink-item",

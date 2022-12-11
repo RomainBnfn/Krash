@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import DrinkData from "src/app/models/drink-data";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import DrinkData from "src/app/models/drinkData.model";
 
 @Component({
     selector: "app-delete-drink-dialog",

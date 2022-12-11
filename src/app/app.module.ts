@@ -60,6 +60,11 @@ import { FireDatabaseService } from "./services/fire-database.service";
 import { AdminOptionsComponent } from "./components/admin-options/admin-options.component";
 import { IconsRefComponent } from "./components/icons-ref/icons-ref.component";
 import { KrashPageComponent } from "./components/krash-page/krash-page.component";
+import { KrashPresentationComponent } from "./components/krash-presentation/krash-presentation.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { DashboardItemComponent } from "./components/dashboard-item/dashboard-item.component";
+import { AdminSidebarComponent } from "./components/admin-sidebar/admin-sidebar.component";
+import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
 
 @NgModule({
     declarations: [
@@ -69,6 +74,7 @@ import { KrashPageComponent } from "./components/krash-page/krash-page.component
         KrashGraphComponent,
         ViewPageComponent,
         HomePageComponent,
+        DashboardPageComponent,
         HeaderComponent,
         FooterComponent,
         DrinkItemComponent,
@@ -82,6 +88,10 @@ import { KrashPageComponent } from "./components/krash-page/krash-page.component
         RegisterFormComponent,
         KrashIconComponent,
         AdminOptionsComponent,
+        KrashPresentationComponent,
+        DashboardItemComponent,
+        DashboardComponent,
+        AdminSidebarComponent,
     ],
     imports: [
         BrowserModule,

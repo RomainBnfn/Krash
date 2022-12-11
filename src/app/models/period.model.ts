@@ -1,4 +1,4 @@
-import DrinkData from "./drink-data";
+import DrinkData from "./drinkData.model";
 
 export default interface Period {
     drinks: DrinkData[];

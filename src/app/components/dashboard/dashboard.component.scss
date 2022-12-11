@@ -1,0 +1,15 @@
+:host {
+    display: contents;
+}
+
+.row {
+    justify-content: center;
+}
+
+.dashboard-container {
+    display: flex;
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    background-color: #00000010;
+    justify-content: center;
+}
