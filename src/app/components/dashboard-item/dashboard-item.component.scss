@@ -1,6 +1,12 @@
 .dashboard-item {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30px;
+    margin: 5px 10px;
+
+    img {
+        max-width: 200px;
+    }
 
     &-icon {
         flex: 1;
@@ -11,14 +17,18 @@
         display: flex;
         font-size: 20px;
         font-weight: bold;
-        justify-items: center;
+        justify-content: center;
         align-items: center;
     }
 
     &-actions {
         height: 20px;
-        font-size: 15px;
+        font-size: 12px;
         display: flex;
         justify-content: space-evenly;
+
+        * {
+            margin: 0 2px;
+        }
     }
 }

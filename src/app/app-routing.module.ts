@@ -4,6 +4,7 @@ import { AdminPageComponent } from "./pages/admin-page/admin-page.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { ViewPageComponent } from "./pages/view-page/view-page.component";
 import { AuthGuardService } from "./services/auth-guard.service";
+import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
 
 const routes: Routes = [
     { path: "", component: HomePageComponent, canActivate: [AuthGuardService] },
@@ -11,6 +12,11 @@ const routes: Routes = [
         path: "view",
         component: ViewPageComponent,
         canActivate: [AuthGuardService],
+    },
+    {
+        path: "dashboard",
+        component: DashboardPageComponent,
+        // canActivate: [AuthGuardService],
     },
     {
         path: "admin",

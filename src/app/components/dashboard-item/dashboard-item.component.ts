@@ -19,6 +19,6 @@ export class DashboardItemComponent implements OnInit {
         if (!this.krash) {
             return false;
         }
-        return hasUserRight("", "RW", this.krash.allowedUsers);
+        return hasUserRight("", "RW", this.krash);
     }
 }

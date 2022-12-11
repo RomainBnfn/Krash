@@ -1,4 +1,5 @@
 import { User } from "./user.model";
+import { Krash } from "./krash.model";
 
 export type KrashRight = "R" | "RW";
 
@@ -12,7 +13,12 @@ export interface KrashUserRight {
 export const hasUserRight = (
     userId: string,
     right: KrashRight,
-    rights: KrashUserRight[]
+    krash: Krash
 ): boolean => {
-    return rights.some((r) => r.right === right && r.user.id === userId);
+    return (
+        krash.owner.id === userId ||
+        krash.allowedUsers.some(
+            (r) => r.right === right && r.user.id === userId
+        )
+    );
 };

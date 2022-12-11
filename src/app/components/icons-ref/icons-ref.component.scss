@@ -1,4 +1,7 @@
 .icon-ref-container {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    font-style: italic;
+    bottom: 5px;
+    right: 50%;
+    transform: translateX(50%);
 }

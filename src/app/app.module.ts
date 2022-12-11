@@ -63,7 +63,8 @@ import { KrashPageComponent } from "./components/krash-page/krash-page.component
 import { KrashPresentationComponent } from "./components/krash-presentation/krash-presentation.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { DashboardItemComponent } from "./components/dashboard-item/dashboard-item.component";
-import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminSidebarComponent } from "./components/admin-sidebar/admin-sidebar.component";
+import { DashboardPageComponent } from "./pages/dashboard-page/dashboard-page.component";
 
 @NgModule({
     declarations: [
@@ -73,6 +74,7 @@ import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.
         KrashGraphComponent,
         ViewPageComponent,
         HomePageComponent,
+        DashboardPageComponent,
         HeaderComponent,
         FooterComponent,
         DrinkItemComponent,
@@ -87,8 +89,8 @@ import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.
         KrashIconComponent,
         AdminOptionsComponent,
         KrashPresentationComponent,
-        DashboardComponent,
         DashboardItemComponent,
+        DashboardComponent,
         AdminSidebarComponent,
     ],
     imports: [

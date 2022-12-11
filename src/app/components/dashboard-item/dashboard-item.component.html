@@ -1,19 +1,19 @@
-<div class="dashboard-item">
-    <div class="dashboard-item-icon">
-        ICON
-    </div>
-    <div class="dashboard-item-name">
-        {{ krash.name }}
-    </div>
+<mat-card class="dashboard-item">
+    <mat-card-header>
+        <mat-card-title>{{ krash?.name }}</mat-card-title>
+        <mat-card-subtitle>Owner: {{ krash?.owner?.name || "" }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <div class="dashboard-item-actions">
-        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-            <mat-icon aria-hidden="false" aria-label="watch this krash" fontIcon="visibility"></mat-icon>
+        <button mat-mini-fab color="primary" aria-label="watch this krash">
+            <mat-icon aria-hidden="false" aria-label="eye" fontIcon="visibility">visibility</mat-icon>
         </button>
-        <button *ngIf="hasUserWriteRight" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-            <mat-icon aria-hidden="false" aria-label="watch this krash" fontIcon="visibility"></mat-icon>
+        <button *ngIf="hasUserWriteRight" mat-mini-fab color="primary" aria-label="edit this krash">
+            <mat-icon aria-hidden="false" aria-label="setting" fontIcon="settings">settings</mat-icon>
         </button>
-        <button *ngIf="hasUserWriteRight" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-            <mat-icon aria-hidden="false" aria-label="delete this krash" fontIcon="delete"></mat-icon>
+        <button *ngIf="hasUserWriteRight" mat-mini-fab color="warn" aria-label="delete this krash">
+            <mat-icon aria-hidden="false" aria-label="trash" fontIcon="delete">delete</mat-icon>
         </button>
     </div>
-</div>
+</mat-card>
