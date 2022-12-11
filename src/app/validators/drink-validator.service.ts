@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-import DrinkData from "../models/drink-data";
+import DrinkData from "../models/drinkData.model";
 import { DrinkService } from "../services/drink.service";
 
 @Injectable({

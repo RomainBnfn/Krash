@@ -1,0 +1,19 @@
+<div class="dashboard-item">
+    <div class="dashboard-item-icon">
+        ICON
+    </div>
+    <div class="dashboard-item-name">
+        {{ krash.name }}
+    </div>
+    <div class="dashboard-item-actions">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon aria-hidden="false" aria-label="watch this krash" fontIcon="visibility"></mat-icon>
+        </button>
+        <button *ngIf="hasUserWriteRight" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon aria-hidden="false" aria-label="watch this krash" fontIcon="visibility"></mat-icon>
+        </button>
+        <button *ngIf="hasUserWriteRight" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon aria-hidden="false" aria-label="delete this krash" fontIcon="delete"></mat-icon>
+        </button>
+    </div>
+</div>

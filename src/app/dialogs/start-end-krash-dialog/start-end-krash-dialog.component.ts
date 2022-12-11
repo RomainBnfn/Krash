@@ -6,7 +6,7 @@ import {
     Validators,
 } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-import DrinkData from "src/app/models/drink-data";
+import DrinkData from "src/app/models/drinkData.model";
 import { DrinkService } from "src/app/services/drink.service";
 
 @Component({

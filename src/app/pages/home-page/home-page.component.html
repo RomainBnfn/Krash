@@ -1,4 +1,5 @@
 <app-krash-page [title]="'HOME'">
+    <app-krash-presentation></app-krash-presentation>
     <div class="page-div">
         <div *ngIf="!isAuth" class="no-auth-div">
             <app-login-form *ngIf="displayedForm == 'login'"></app-login-form>
@@ -11,6 +12,7 @@
         </div>
         <div *ngIf="isAuth" class="auth-div">
             <h1>Bienvenue !</h1>
+            // dash board there ?
         </div>
     </div>
 </app-krash-page>
