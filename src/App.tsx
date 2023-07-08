@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import SplashScreen from "./screens/splashScreen/SplashScreen";
+import SplashScreen from "./screens/SplashScreen/SplashScreen";
 import AppContextProvider from "./contexts/AppContext";
 
 const AppRoutes = lazy(() => import("./AppRoutes"));

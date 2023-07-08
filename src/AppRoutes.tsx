@@ -1,14 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy } from "react";
-import LoadingScreen from "./screens/loadingScreen/LoadingScreen";
+import LoadingScreen from "./screens/LoadingScreen/LoadingScreen";
 
-const HomeScreen = lazy(() => import("./screens/homeScreen/HomeScreen"));
-const LoginScreen = lazy(() => import("./screens/loginScreen/LoginScreen"));
+const HomeScreen = lazy(() => import("./screens/HomeScreen/HomeScreen"));
+const LoginScreen = lazy(() => import("./screens/LoginScreen/LoginScreen"));
 const RegisterScreen = lazy(
-    () => import("./screens/registerScreen/RegisterScreen"),
+    () => import("./screens/RegisterScreen/RegisterScreen"),
 );
 const Error404Screen = lazy(
-    () => import("./screens/error404Screen/error404Screen"),
+    () => import("./screens/Error404Screen/Error404Screen"),
 );
 
 const router = createBrowserRouter([
