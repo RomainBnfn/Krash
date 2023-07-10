@@ -9,11 +9,11 @@ const AppRoutes = lazy(() => import("./AppRoutes"));
  * @constructor
  */
 const App = () => (
-    <Suspense fallback={<SplashScreen />}>
-        <AppContextProvider>
+    <AppContextProvider>
+        <Suspense fallback={<SplashScreen />}>
             <AppRoutes />
-        </AppContextProvider>
-    </Suspense>
+        </Suspense>
+    </AppContextProvider>
 );
 
 export default App;

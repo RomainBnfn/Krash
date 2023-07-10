@@ -1,14 +1,26 @@
 import { createContext, ReactNode, useContext } from "react";
+import { AuthContextProvider } from "./AuthContext";
 
-interface AppContextValues {}
+interface AppContextValues {
+    appName: string;
+}
 
-const AppContext = createContext<AppContextValues>({});
+export const AppContext = createContext<AppContextValues>({
+    appName: "",
+});
 
 export const useApp = () => useContext(AppContext);
 
 const AppContextProvider = (props: { children?: ReactNode }) => {
+    const values: AppContextValues = {
+        appName: "Krash",
+    };
     return (
-        <AppContext.Provider value={{}}>{props.children}</AppContext.Provider>
+        <AuthContextProvider>
+            <AppContext.Provider value={values}>
+                {props.children}
+            </AppContext.Provider>
+        </AuthContextProvider>
     );
 };
 

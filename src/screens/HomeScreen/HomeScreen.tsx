@@ -1,7 +1,8 @@
 import React from "react";
+import Screen from "../../components/Screen/Screen";
 
 const HomeScreen = () => {
-    return <>Home page</>;
+    return <Screen>Home page</Screen>;
 };
 
 export default HomeScreen;
