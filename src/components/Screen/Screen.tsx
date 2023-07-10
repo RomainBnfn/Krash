@@ -1,14 +1,13 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import Navbar from "../Navbar/Navbar";
-import { ChildrenProps } from "../../models/childrenProps";
 
-interface ScreenProps extends ChildrenProps {}
+interface ScreenProps extends ComponentProps<any> {}
 
-const Screen = ({ children }: ScreenProps) => {
+const Screen = (props: ScreenProps) => {
     return (
         <>
             <Navbar />
-            <div>{children}</div>
+            <div {...props} />
         </>
     );
 };

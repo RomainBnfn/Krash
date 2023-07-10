@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
-import { User } from "../models/user.model";
+import { UserModel } from "../models/user.model";
 
 interface AuthContextModel {
     isAuthenticated: boolean;
-    user: User | undefined;
+    user: UserModel | undefined;
 
     fakeLogin(): void;
 
@@ -20,7 +20,7 @@ const AuthContext = createContext<AuthContextModel>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = (props: { children?: ReactNode }) => {
-    const [user, setUser] = useState<User>();
+    const [user, setUser] = useState<UserModel>();
     const values = useMemo(
         (): AuthContextModel => ({
             user: user,
