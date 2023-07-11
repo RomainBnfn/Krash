@@ -1,6 +1,6 @@
 import React from "react";
-import FormField from "../../../../components/Forms/FormField";
 import SubmitFormButton from "../../../../components/Buttons/SubmitFormButton";
+import FormField from "../../../../components/Forms/FormField/FormField";
 
 const RegisterFormContent = () => {
     return (

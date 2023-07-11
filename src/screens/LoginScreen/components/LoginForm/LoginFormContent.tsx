@@ -1,6 +1,6 @@
 import SubmitFormButton from "../../../../components/Buttons/SubmitFormButton";
 import React from "react";
-import FormField from "../../../../components/Forms/FormField";
+import FormField from "../../../../components/Forms/FormField/FormField";
 
 /**
  * The fields content of login form

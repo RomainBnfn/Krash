@@ -1,6 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
-import { LoginFormModel } from "../../../../models/forms/loginForm.model";
+import {
+    LoginFormModel,
+    LoginFormSchema,
+} from "../../../../models/forms/loginForm.model";
 import LoginFormContent from "./LoginFormContent";
 import "./LoginForm.scss";
 
@@ -21,6 +24,7 @@ const LoginForm = () => {
         <Formik<LoginFormModel>
             initialValues={INITIAL_VALUES}
             onSubmit={onSubmit}
+            validationSchema={LoginFormSchema}
         >
             <LoginFormContent />
         </Formik>
