@@ -1,7 +1,4 @@
 
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 a
@@ -18,12 +15,6 @@ c
 .public/assets/images/icons/icon-white-wine.svg,7\b\7bb4da024e44a2375f89432a081dd74b8f3083a8
 c
 3public/assets/images/icons/icon-yellow-cocktail.svg,7\8\780cbf0d560f95b771fb9038bf680b0a57aabefd
-A
-public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
-D
-public/manifest.json,4\2\42e89cd2213b9d5dfae4f63522702c623170d792
-A
-public/robots.txt,d\a\dac799070c2d0c2fa24462b02c1f2dcc3fb3a1e9
 <
 src/logo.svg,6\d\6d3a8cd532ece5b4ddbd4b3b6a678ba686d300bc
 F
