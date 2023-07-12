@@ -1,6 +1,8 @@
+$color-primary: #1f9482;
+
 * {
     --color-primary-light: #2cb9a6;
-    --color-primary: #1f9482;
+    --color-primary: $color-primary;
     --color-primary-dark: #167a6b;
 
     --color-white: #fff;

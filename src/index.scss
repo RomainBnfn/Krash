@@ -1,4 +1,4 @@
-@import "./styles/colors.css";
+@import "styles/colors";
 
 html, body, #root {
     margin: 0;
@@ -19,6 +19,4 @@ code {
     monospace;
 }
 
-@import "styles/theme";
-
-@import 'bootstrap/dist/css/bootstrap.css';
+@import "styles/bootstrapTheme";

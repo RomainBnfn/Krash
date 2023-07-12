@@ -1,5 +1,5 @@
 import React from "react";
-import {Nav} from "react-bootstrap";
+import {NavDropdown} from "react-bootstrap";
 import {useAuth} from "../../contexts/AuthContext";
 
 /**
@@ -7,8 +7,11 @@ import {useAuth} from "../../contexts/AuthContext";
  * @constructor
  */
 const NavLogout = () => {
-    const { logout } = useAuth();
-    return <Nav.Link onClick={logout}>Déconnexion</Nav.Link>;
+    const { isAuthenticated, logout } = useAuth();
+    if (!isAuthenticated) {
+        return <></>;
+    }
+    return <NavDropdown.Item onClick={logout}>Déconnexion</NavDropdown.Item>;
 };
 
 export default NavLogout;

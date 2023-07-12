@@ -5,7 +5,8 @@ import { useApp } from "../../contexts/AppContext";
 import { Routes } from "../../AppRoutes";
 import NavLink from "./NavLink";
 import { useAuth } from "../../contexts/AuthContext";
-import NavLogout from "./NavLogout";
+import NavbarUserDropDown from "./NavbarUserDropdown";
+import "./Navbar.scss";
 
 const Navbar = () => {
     const { appName } = useApp();
@@ -19,14 +20,23 @@ const Navbar = () => {
                 <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
                 <BootstrapNavbar.Collapse id="basic-navbar-nav">
                     <Nav>
-                        {isAuthenticated && (
-                            <NavLink name={"Accueil"} path={Routes.home} />
-                        )}
-                        {!isAuthenticated && (
-                            <NavLink name={"Connexion"} path={Routes.login} />
-                        )}
-                        {isAuthenticated && <NavLogout />}
+                        <NavLink
+                            name={"Accueil"}
+                            path={Routes.home}
+                            show={isAuthenticated}
+                        />{" "}
+                        <NavLink
+                            name={"Administration"}
+                            path={Routes.administration}
+                            show={isAuthenticated}
+                        />
+                        <NavLink
+                            name={"Connexion"}
+                            path={Routes.login}
+                            show={!isAuthenticated}
+                        />
                     </Nav>
+                    <NavbarUserDropDown />
                 </BootstrapNavbar.Collapse>
             </Container>
         </BootstrapNavbar>

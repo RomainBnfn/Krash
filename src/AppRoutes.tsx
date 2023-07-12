@@ -3,17 +3,21 @@ import {
     RouteObject,
     RouterProvider,
 } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import LoadingScreen from "./screens/LoadingScreen/LoadingScreen";
 import AuthenticatedGuard from "./guards/AuthenticatedGuard";
 
 const HomeScreen = lazy(() => import("./screens/HomeScreen/HomeScreen"));
+
 const LoginScreen = lazy(() => import("./screens/LoginScreen/LoginScreen"));
 const RegisterScreen = lazy(
     () => import("./screens/RegisterScreen/RegisterScreen"),
 );
 const Error404Screen = lazy(
     () => import("./screens/Error404Screen/Error404Screen"),
+);
+const AdministrationScreen = lazy(
+    () => import("./screens/AdministrationScreen/AdministrationScreen"),
 );
 
 export const Routes = {
@@ -51,6 +55,14 @@ const routes: (RouteObject & { path: Route })[] = [
         ),
     },
     {
+        path: Routes.administration,
+        element: (
+            <AuthenticatedGuard shouldBeAuthenticated={true}>
+                <AdministrationScreen />
+            </AuthenticatedGuard>
+        ),
+    },
+    {
         path: "*",
         element: <Error404Screen />,
     },
@@ -61,10 +73,12 @@ const routes: (RouteObject & { path: Route })[] = [
  */
 const AppRoutes = () => {
     return (
-        <RouterProvider
-            router={createBrowserRouter(routes)}
-            fallbackElement={<LoadingScreen />}
-        />
+        <Suspense fallback={<LoadingScreen />}>
+            <RouterProvider
+                router={createBrowserRouter(routes)}
+                fallbackElement={<LoadingScreen />}
+            />
+        </Suspense>
     );
 };
 

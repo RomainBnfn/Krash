@@ -1,0 +1,9 @@
+@import "./colors";
+
+/**
+ * Override bootstrap colors here
+ */
+$primary: $color-primary;
+
+@import "bootstrap/scss/bootstrap.scss";
+
