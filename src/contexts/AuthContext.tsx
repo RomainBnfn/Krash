@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 import { UserModel } from "../models/user.model";
 import UserService from "../services/userService";
-import { UserCredential } from "firebase/auth";
+import { onAuthStateChanged, UserInfo } from "firebase/auth";
+import { auth } from "../index";
 
 interface AuthContextModel {
     isAuthenticated: boolean;
@@ -34,11 +35,18 @@ export const AuthContextProvider = (props: { children?: ReactNode }) => {
      * Put the user into the state if defined
      * @param user
      */
-    const handleRegisterAndLogResponse = (user: UserCredential | void) => {
+    const handleRegisterAndLogResponse = (
+        user: UserInfo | null | undefined,
+    ) => {
         if (user) {
-            setUser(user.user as unknown as UserModel);
+            setUser(user as unknown as UserModel);
         }
     };
+
+    /**
+     * Use this to allow the user to stay logged event with Ctrl R
+     */
+    onAuthStateChanged(auth, handleRegisterAndLogResponse);
 
     /**
      * Try to log in with email & password
@@ -49,11 +57,11 @@ export const AuthContextProvider = (props: { children?: ReactNode }) => {
         email: string,
         password: string,
     ) => {
-        await UserService.loginFromEmailAndPassword(email, password).then(
-            handleRegisterAndLogResponse,
-        );
+        await UserService.loginFromEmailAndPassword(email, password)
+            .then((cred) => cred?.user)
+            .then(handleRegisterAndLogResponse);
     };
- 
+
     /**
      * Try to register a new user with email & password
      * @param email
@@ -63,9 +71,9 @@ export const AuthContextProvider = (props: { children?: ReactNode }) => {
         email: string,
         password: string,
     ) => {
-        await UserService.createFromEmailAndPassword(email, password).then(
-            handleRegisterAndLogResponse,
-        );
+        await UserService.createFromEmailAndPassword(email, password)
+            .then((cred) => cred?.user)
+            .then(handleRegisterAndLogResponse);
     };
 
     /**
