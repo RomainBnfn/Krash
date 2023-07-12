@@ -13,6 +13,9 @@ const LoginScreen = lazy(() => import("./screens/LoginScreen/LoginScreen"));
 const RegisterScreen = lazy(
     () => import("./screens/RegisterScreen/RegisterScreen"),
 );
+const ForgottenPasswordScreen = lazy(
+    () => import("./screens/ForgottenPasswordScreen/ForgottenPasswordScreen"),
+);
 const Error404Screen = lazy(
     () => import("./screens/Error404Screen/Error404Screen"),
 );
@@ -24,6 +27,7 @@ export const Routes = {
     home: "/",
     login: "/login",
     register: "/register",
+    forgottenPassword: "/forgotten-password",
     administration: "/admin",
     error404: "*",
 } as const;
@@ -51,6 +55,14 @@ const routes: (RouteObject & { path: Route })[] = [
         element: (
             <AuthenticatedGuard shouldBeAuthenticated={false}>
                 <RegisterScreen />
+            </AuthenticatedGuard>
+        ),
+    },
+    {
+        path: Routes.forgottenPassword,
+        element: (
+            <AuthenticatedGuard shouldBeAuthenticated={false}>
+                <ForgottenPasswordScreen />
             </AuthenticatedGuard>
         ),
     },

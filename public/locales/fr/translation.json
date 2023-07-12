@@ -27,7 +27,8 @@
         "TITLE": "Connexion",
         "EMAIL": "Email",
         "PASSWORD": "Mot de passe",
-        "NOT_REGISTERED": "Pas encore inscrit ?"
+        "NOT_REGISTERED": "Pas encore inscrit ?",
+        "FORGOTTEN_PASSWORD": "Mot de passe oublié?"
     },
     "REGISTER": {
         "TITLE": "Inscription",
@@ -35,6 +36,10 @@
         "PASSWORD": "Mot de passe",
         "CONFIRM_PASSWORD": "Confirmez votre mot de passe",
         "ALREADY_REGISTERED": "Déjà inscrit ?"
+    },
+    "FORGOTTEN_PASSWORD": {
+        "TITLE": "Mot de passe oublié",
+        "CANCEL": "Annuler"
     },
     "HOME": {
         "TITLE": "Accueil"
