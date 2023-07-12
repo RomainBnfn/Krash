@@ -1,7 +1,7 @@
 import SubmitFormButton from "../../../../components/Buttons/SubmitFormButton";
 import React from "react";
 import FormField from "../../../../components/Forms/FormField/FormField";
-import {useAppFormik} from "../../../../hooks/appFormikHooks";
+import {useAppFormik} from "../../../../hooks/useAppFormik";
 
 /**
  * The fields content of login form

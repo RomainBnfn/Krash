@@ -1,7 +1,7 @@
 import React from "react";
 import SubmitFormButton from "../../../../components/Buttons/SubmitFormButton";
 import FormField from "../../../../components/Forms/FormField/FormField";
-import {useAppFormik} from "../../../../hooks/appFormikHooks";
+import {useAppFormik} from "../../../../hooks/useAppFormik";
 
 /**
  * Register formik form content

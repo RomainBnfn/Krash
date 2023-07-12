@@ -7,6 +7,9 @@ import {
 import LoginFormContent from "./LoginFormContent";
 import "./LoginForm.scss";
 import { useAuth } from "../../../../contexts/AuthContext";
+import { useToast } from "../../../../contexts/ToastContext";
+import { useTranslation } from "react-i18next";
+import { FirebaseError } from "firebase/app";
 
 const INITIAL_VALUES: LoginFormModel = {
     userName: "",
@@ -19,13 +22,21 @@ const INITIAL_VALUES: LoginFormModel = {
  */
 const LoginForm = () => {
     const { loginWithEmailAndPassword } = useAuth();
+    const { t } = useTranslation();
+    const { displayErrorToast } = useToast();
 
     /**
      * Try to log in user & handle error if there are
      * @param values
      */
     const onSubmit = async (values: LoginFormModel) => {
-        await loginWithEmailAndPassword(values.userName, values.password);
+        await loginWithEmailAndPassword(values.userName, values.password).catch(
+            (error: FirebaseError) => {
+                displayErrorToast({
+                    message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),
+                });
+            },
+        );
     };
 
     return (

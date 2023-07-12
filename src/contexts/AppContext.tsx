@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useMemo } from "react";
 import { AuthContextProvider } from "./AuthContext";
+import { ToastContextProvider } from "./ToastContext";
 
 interface AppContextValues {
     appName: string;
@@ -19,11 +20,13 @@ const AppContextProvider = (props: { children?: ReactNode }) => {
         [],
     );
     return (
-        <AuthContextProvider>
-            <AppContext.Provider value={values}>
-                {props.children}
-            </AppContext.Provider>
-        </AuthContextProvider>
+        <ToastContextProvider>
+            <AuthContextProvider>
+                <AppContext.Provider value={values}>
+                    {props.children}
+                </AppContext.Provider>
+            </AuthContextProvider>
+        </ToastContextProvider>
     );
 };
 

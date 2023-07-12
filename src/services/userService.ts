@@ -16,13 +16,7 @@ namespace UserService {
         email: string,
         password: string,
     ): Promise<UserCredential | void> => {
-        return createUserWithEmailAndPassword(auth, email, password).catch(
-            (error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            },
-        );
+        return createUserWithEmailAndPassword(auth, email, password);
     };
 
     /**
@@ -34,13 +28,7 @@ namespace UserService {
         email: string,
         password: string,
     ): Promise<UserCredential | void> => {
-        return signInWithEmailAndPassword(auth, email, password).catch(
-            (error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            },
-        );
+        return signInWithEmailAndPassword(auth, email, password);
     };
 
     /**

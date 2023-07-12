@@ -4,6 +4,12 @@
  * Override bootstrap colors here
  */
 $primary: $color-primary;
+$toast-spacing: 15px;
+ 
+
+.bg-danger {
+    --bs-bg-opacity: 0.4 !important;
+}
 
 @import "bootstrap/scss/bootstrap.scss";
 
