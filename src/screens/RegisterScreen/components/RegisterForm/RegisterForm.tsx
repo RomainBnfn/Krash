@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { FirebaseError } from "firebase/app";
 
 const INITIAL_VALUES: RegisterFormModel = {
-    userName: "",
+    email: "",
     password: "",
     passwordConfirmation: "",
 };
@@ -31,14 +31,13 @@ const RegisterForm = () => {
      * @param values
      */
     const onSubmit = async (values: RegisterFormModel) => {
-        await registerWithEmailAndPassword(
-            values.userName,
-            values.password,
-        ).catch((error: FirebaseError) => {
-            displayErrorToast({
-                message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),
-            });
-        });
+        await registerWithEmailAndPassword(values.email, values.password).catch(
+            (error: FirebaseError) => {
+                displayErrorToast({
+                    message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),
+                });
+            },
+        );
     };
 
     return (

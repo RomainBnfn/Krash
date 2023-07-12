@@ -2,7 +2,11 @@
     "FORM": {
         "ERRORS": {
             "REQUIRED": "Champ obligatoire.",
-            "PASSWORD_CONFIRMATION": "Les mots de passe ne correspondent pas."
+            "PASSWORD_CONFIRMATION": "Les mots de passe ne correspondent pas.",
+            "EMAIL_FORMAT": "Cet email n'est pas valide."
+        },
+        "BUTTONS": {
+            "SUBMIT": "Confirmer"
         }
     },
     "ERRORS": {
@@ -18,5 +22,30 @@
             "AUTH/SESSION-COOKIE-EXPIRED": "Le cookie de session a expiré.",
             "AUTH/WEAK-PASSWORD": "Le mot de passe est trop fragile. Minimum 6 caractères dont une majuscule."
         }
+    },
+    "LOGIN": {
+        "TITLE": "Connexion",
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe",
+        "NOT_REGISTERED": "Pas encore inscrit ?"
+    },
+    "REGISTER": {
+        "TITLE": "Inscription",
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe",
+        "CONFIRM_PASSWORD": "Confirmez votre mot de passe",
+        "ALREADY_REGISTERED": "Déjà inscrit ?"
+    },
+    "HOME": {
+        "TITLE": "Accueil"
+    },
+    "ADMINISTRATION": {
+        "TITLE": "Administration"
+    },
+    "MY_ACCOUNT": {
+        "TITLE": "Mon compte"
+    },
+    "NAVBAR": {
+        "LOGOUT": "Deconnexion"
     }
 }

@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { FirebaseError } from "firebase/app";
 
 const INITIAL_VALUES: LoginFormModel = {
-    userName: "",
+    email: "",
     password: "",
 };
 
@@ -30,7 +30,7 @@ const LoginForm = () => {
      * @param values
      */
     const onSubmit = async (values: LoginFormModel) => {
-        await loginWithEmailAndPassword(values.userName, values.password).catch(
+        await loginWithEmailAndPassword(values.email, values.password).catch(
             (error: FirebaseError) => {
                 displayErrorToast({
                     message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),

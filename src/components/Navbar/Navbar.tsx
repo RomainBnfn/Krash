@@ -7,8 +7,10 @@ import NavLink from "./NavLink";
 import { useAuth } from "../../contexts/AuthContext";
 import NavbarUserDropDown from "./NavbarUserDropdown";
 import "./Navbar.scss";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+    const { t } = useTranslation();
     const { appName } = useApp();
     const { isAuthenticated } = useAuth();
     return (
@@ -21,17 +23,17 @@ const Navbar = () => {
                 <BootstrapNavbar.Collapse id="basic-navbar-nav">
                     <Nav>
                         <NavLink
-                            name={"Accueil"}
+                            name={t("HOME.TITLE")}
                             path={Routes.home}
                             show={isAuthenticated}
                         />{" "}
                         <NavLink
-                            name={"Administration"}
+                            name={t("ADMINISTRATION.TITLE")}
                             path={Routes.administration}
                             show={isAuthenticated}
                         />
                         <NavLink
-                            name={"Connexion"}
+                            name={t("LOGIN.TITLE")}
                             path={Routes.login}
                             show={!isAuthenticated}
                         />

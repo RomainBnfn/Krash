@@ -3,17 +3,19 @@ import {Link} from "react-router-dom";
 import {Routes} from "../../AppRoutes";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LogScreen from "../../components/LogScreen/LogScreen";
+import {useTranslation} from "react-i18next";
 
 /**
  * Register screen
  * @constructor
  */
 const RegisterScreen = () => {
+    const { t } = useTranslation();
     return (
         <LogScreen>
-            <h2>Inscription</h2>
+            <h2>{t("REGISTER.TITLE")}</h2>
             <RegisterForm />
-            <Link to={Routes.login}>Déjà inscrit ?</Link>
+            <Link to={Routes.login}>{t("REGISTER.ALREADY_REGISTERED")}</Link>
         </LogScreen>
     );
 };

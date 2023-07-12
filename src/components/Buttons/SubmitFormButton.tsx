@@ -1,12 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useFormikContext } from "formik";
+import { useTranslation } from "react-i18next";
 
 interface SubmitFormButtonProps {
     label?: String;
 }
-
-const DEFAULT_LABEL = "Confirmer";
 
 /**
  * Button that submit formik form and is disabled if the form is
@@ -14,7 +13,10 @@ const DEFAULT_LABEL = "Confirmer";
  * @constructor
  */
 const SubmitFormButton = ({ label }: SubmitFormButtonProps) => {
+    const { t } = useTranslation();
     const { submitForm, errors, dirty } = useFormikContext();
+    const DEFAULT_LABEL = t("FORM.BUTTONS.SUBMIT");
+
     return (
         <Button
             onClick={submitForm}

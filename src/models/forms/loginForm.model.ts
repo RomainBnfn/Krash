@@ -5,7 +5,7 @@ import {FormErrors} from "../../enums/formErrors.enum";
  * Login form model
  */
 export interface LoginFormModel {
-    userName: string;
+    email: string;
     password: string;
 }
 
@@ -13,7 +13,8 @@ export interface LoginFormModel {
  * Login form schema
  */
 export const LoginFormSchema = Yup.object<LoginFormModel>().shape({
-    userName: Yup.string()
+    email: Yup.string()
+        .email(FormErrors.EMAIL_FORMAT)
         .required(FormErrors.REQUIRED)
         .min(0, FormErrors.REQUIRED),
     password: Yup.string()
