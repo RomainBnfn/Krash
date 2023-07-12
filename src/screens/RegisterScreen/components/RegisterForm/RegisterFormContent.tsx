@@ -10,7 +10,7 @@ import {useAppFormik} from "../../../../hooks/appFormikHooks";
 const RegisterFormContent = () => {
     const { submitOnEnterKeyPress } = useAppFormik();
     return (
-        <div className={"RegisterFormContent"} onKeyUp={submitOnEnterKeyPress}>
+        <form className={"RegisterFormContent"} onKeyUp={submitOnEnterKeyPress}>
             <FormField name={"userName"} label={"Nom d'utilisateur"} />
             <FormField
                 name={"password"}
@@ -23,7 +23,7 @@ const RegisterFormContent = () => {
                 type={"password"}
             />
             <SubmitFormButton />
-        </div>
+        </form>
     );
 };
 

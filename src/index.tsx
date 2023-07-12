@@ -3,13 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-import { firebaseConfig } from "./firebase.config";
+import {initializeApp} from "firebase/app";
+import {getFirestore} from "firebase/firestore";
+import {getAuth} from "firebase/auth";
+import {firebaseConfig} from "./firebase.config";
+import "./i18n";
 
+// Firebase init
 const firebaseApp = initializeApp(firebaseConfig);
-
 export const firestore = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
 

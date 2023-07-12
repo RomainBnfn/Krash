@@ -1,0 +1,8 @@
+{
+    "FORM": {
+        "ERRORS": {
+            "REQUIRED": "Champ obligatoire.",
+            "PASSWORD_CONFIRMATION": "Les mots de passe ne correspondent pas."
+        }
+    }
+}

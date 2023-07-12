@@ -10,7 +10,7 @@ import {useAppFormik} from "../../../../hooks/appFormikHooks";
 const LoginFormContent = () => {
     const { submitOnEnterKeyPress } = useAppFormik();
     return (
-        <div className={"LoginFormContent"} onKeyUp={submitOnEnterKeyPress}>
+        <form className={"LoginFormContent"} onKeyUp={submitOnEnterKeyPress}>
             <FormField name={"userName"} label={"Nom d'utilisateur"} />
             <FormField
                 name={"password"}
@@ -18,7 +18,7 @@ const LoginFormContent = () => {
                 type={"password"}
             />
             <SubmitFormButton />
-        </div>
+        </form>
     );
 };
 
