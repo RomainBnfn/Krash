@@ -23,6 +23,12 @@
             "AUTH/WEAK-PASSWORD": "Le mot de passe est trop fragile. Minimum 6 caractères dont une majuscule."
         }
     },
+    "SUCCESS": {
+        "TOAST_TITLE": "Action effectuée!",
+        "FIREBASE": {
+            "AUTH/RESET-PASSWORD-MAIL-SENT": "Un email de réinitialisation de mot de passe vous a été envoyé."
+        }
+    },
     "LOGIN": {
         "TITLE": "Connexion",
         "EMAIL": "Email",

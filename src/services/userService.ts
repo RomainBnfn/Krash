@@ -1,5 +1,6 @@
 import {
     createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signOut,
     UserCredential,
@@ -36,6 +37,14 @@ namespace UserService {
      */
     export const logout = async () => {
         return signOut(auth);
+    };
+
+    /**
+     * Send password reset email
+     * @param email
+     */
+    export const resetPassword = async (email: string) => {
+        return sendPasswordResetEmail(auth, email);
     };
 }
 export default UserService;

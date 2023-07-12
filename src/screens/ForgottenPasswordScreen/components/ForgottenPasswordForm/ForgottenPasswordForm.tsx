@@ -2,7 +2,6 @@ import React from "react";
 import { Formik } from "formik";
 import ForgottenPasswordFormContent from "./ForgottenPasswordFormContent";
 import "./ForgottenPasswordForm.scss";
-import { useAuth } from "../../../../contexts/AuthContext";
 
 import { useToast } from "../../../../contexts/ToastContext";
 import { useTranslation } from "react-i18next";
@@ -10,6 +9,8 @@ import {
     ForgottenPasswordFormModel,
     ForgottenPasswordFormSchema,
 } from "../../../../models/forms/forgottenPasswordForm.model";
+import UserService from "../../../../services/userService";
+import { FirebaseError } from "firebase/app";
 
 const INITIAL_VALUES: ForgottenPasswordFormModel = {
     email: "",
@@ -19,8 +20,7 @@ const INITIAL_VALUES: ForgottenPasswordFormModel = {
  * @constructor
  */
 const ForgottenPasswordForm = () => {
-    const { registerWithEmailAndPassword } = useAuth();
-    const { displayErrorToast } = useToast();
+    const { displayErrorToast, displaySuccessToast } = useToast();
     const { t } = useTranslation();
 
     /**
@@ -28,13 +28,19 @@ const ForgottenPasswordForm = () => {
      * @param values
      */
     const onSubmit = async (values: ForgottenPasswordFormModel) => {
-        // await registerWithEmailAndPassword(values.email, values.password).catch(
-        //     (error: FirebaseError) => {
-        //         displayErrorToast({
-        //             message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),
-        //         });
-        //     },
-        // );
+        await UserService.resetPassword(values.email)
+            .then(() => {
+                displaySuccessToast({
+                    message: t(
+                        "SUCCESS.FIREBASE.AUTH/RESET-PASSWORD-MAIL-SENT",
+                    ),
+                });
+            })
+            .catch((error: FirebaseError) => {
+                displayErrorToast({
+                    message: t(`ERRORS.FIREBASE.${error.code.toUpperCase()}`),
+                });
+            });
     };
 
     return (

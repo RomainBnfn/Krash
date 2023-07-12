@@ -50,7 +50,7 @@ export const useToast = () => {
     };
 
     /**
-     * Display an error toast that auto hide few minutes after
+     * Display an error toast that auto hide few seconds
      * @param toast
      */
     const displayErrorToast = (
@@ -63,9 +63,24 @@ export const useToast = () => {
         });
     };
 
+    /**
+     * Display a success toast that auto hide few seconds
+     * @param toast
+     */
+    const displaySuccessToast = (
+        toast: Omit<ToastModel, "id" | "type" | "autohide" | "header">,
+    ) => {
+        displayToast({
+            header: t("SUCCESS.TOAST_TITLE"),
+            type: "success",
+            ...toast,
+        });
+    };
+
     return {
         displayToast,
         displayErrorToast,
+        displaySuccessToast,
     };
 };
 
