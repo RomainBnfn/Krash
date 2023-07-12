@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useMemo } from "react";
 import { AuthContextProvider } from "./AuthContext";
 
 interface AppContextValues {
@@ -12,9 +12,12 @@ export const AppContext = createContext<AppContextValues>({
 export const useApp = () => useContext(AppContext);
 
 const AppContextProvider = (props: { children?: ReactNode }) => {
-    const values: AppContextValues = {
-        appName: "Krash",
-    };
+    const values = useMemo(
+        (): AppContextValues => ({
+            appName: "Krash",
+        }),
+        [],
+    );
     return (
         <AuthContextProvider>
             <AppContext.Provider value={values}>

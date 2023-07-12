@@ -6,6 +6,7 @@ import {
 } from "../../../../models/forms/loginForm.model";
 import LoginFormContent from "./LoginFormContent";
 import "./LoginForm.scss";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 const INITIAL_VALUES: LoginFormModel = {
     userName: "",
@@ -17,9 +18,16 @@ const INITIAL_VALUES: LoginFormModel = {
  * @constructor
  */
 const LoginForm = () => {
-    const onSubmit = (values: LoginFormModel) => {
-        alert(JSON.stringify(values));
+    const { loginWithEmailAndPassword } = useAuth();
+
+    /**
+     * Try to log in user & handle error if there are
+     * @param values
+     */
+    const onSubmit = async (values: LoginFormModel) => {
+        await loginWithEmailAndPassword(values.userName, values.password);
     };
+
     return (
         <Formik<LoginFormModel>
             initialValues={INITIAL_VALUES}

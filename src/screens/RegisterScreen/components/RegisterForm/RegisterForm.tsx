@@ -6,6 +6,7 @@ import {
 } from "../../../../models/forms/registerForm.model";
 import RegisterFormContent from "./RegisterFormContent";
 import "./RegisterForm.scss";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 const INITIAL_VALUES: RegisterFormModel = {
     userName: "",
@@ -17,9 +18,16 @@ const INITIAL_VALUES: RegisterFormModel = {
  * @constructor
  */
 const RegisterForm = () => {
-    const onSubmit = (values: RegisterFormModel) => {
-        alert(JSON.stringify(values));
+    const { registerWithEmailAndPassword } = useAuth();
+
+    /**
+     * Try to register user & handle error if there are
+     * @param values
+     */
+    const onSubmit = async (values: RegisterFormModel) => {
+        await registerWithEmailAndPassword(values.userName, values.password);
     };
+
     return (
         <Formik<RegisterFormModel>
             initialValues={INITIAL_VALUES}

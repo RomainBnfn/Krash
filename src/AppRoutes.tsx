@@ -36,11 +36,19 @@ const routes: (RouteObject & { path: Route })[] = [
     },
     {
         path: Routes.login,
-        element: <LoginScreen />,
+        element: (
+            <AuthenticatedGuard shouldBeAuthenticated={false}>
+                <LoginScreen />
+            </AuthenticatedGuard>
+        ),
     },
     {
         path: Routes.register,
-        element: <RegisterScreen />,
+        element: (
+            <AuthenticatedGuard shouldBeAuthenticated={false}>
+                <RegisterScreen />
+            </AuthenticatedGuard>
+        ),
     },
     {
         path: "*",

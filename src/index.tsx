@@ -3,6 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { firebaseConfig } from "./firebase.config";
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+export const firestore = getFirestore(firebaseApp);
+export const auth = getAuth(firebaseApp);
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement,
