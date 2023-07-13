@@ -1,0 +1,8 @@
+.Screen {
+    &-centered {
+        flex: 1;
+        background-color: var(--color-gray-01);
+        padding: 10px 20px;
+        margin: 0 auto;
+    }
+}
