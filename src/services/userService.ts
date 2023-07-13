@@ -5,7 +5,7 @@ import {
     signOut,
     UserCredential,
 } from "firebase/auth";
-import { auth } from "../index";
+import { fireAuth } from "../index";
 
 namespace UserService {
     /**
@@ -17,7 +17,7 @@ namespace UserService {
         email: string,
         password: string,
     ): Promise<UserCredential | void> => {
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(fireAuth, email, password);
     };
 
     /**
@@ -29,14 +29,14 @@ namespace UserService {
         email: string,
         password: string,
     ): Promise<UserCredential | void> => {
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(fireAuth, email, password);
     };
 
     /**
      * Log out from firebase
      */
     export const logout = async () => {
-        return signOut(auth);
+        return signOut(fireAuth);
     };
 
     /**
@@ -44,7 +44,7 @@ namespace UserService {
      * @param email
      */
     export const resetPassword = async (email: string) => {
-        return sendPasswordResetEmail(auth, email);
+        return sendPasswordResetEmail(fireAuth, email);
     };
 }
 export default UserService;

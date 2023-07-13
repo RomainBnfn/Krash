@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {initializeApp} from "firebase/app";
 import {getFirestore} from "firebase/firestore";
+import {getDatabase} from "firebase/database";
 import {getAuth} from "firebase/auth";
 import {firebaseConfig} from "./firebase.config";
 import "./i18n";
@@ -12,7 +13,8 @@ import "./i18n";
 // Firebase init
 const firebaseApp = initializeApp(firebaseConfig);
 export const firestore = getFirestore(firebaseApp);
-export const auth = getAuth(firebaseApp);
+export const fireDatabase = getDatabase(firebaseApp);
+export const fireAuth = getAuth(firebaseApp);
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement,

@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from "react";
-import { UserModel } from "../models/user.model";
+import { UserModel } from "../models/user/user.model";
 import UserService from "../services/userService";
 import { onAuthStateChanged, UserInfo } from "firebase/auth";
-import { auth } from "../index";
+import { fireAuth } from "../index";
 
 interface AuthContextModel {
     isAuthenticated: boolean;
@@ -46,7 +46,7 @@ export const AuthContextProvider = (props: { children?: ReactNode }) => {
     /**
      * Use this to allow the user to stay logged event with Ctrl R
      */
-    onAuthStateChanged(auth, handleRegisterAndLogResponse);
+    onAuthStateChanged(fireAuth, handleRegisterAndLogResponse);
 
     /**
      * Try to log in with email & password

@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useMemo } from "react";
 import { AuthContextProvider } from "./AuthContext";
 import { ToastContextProvider } from "./ToastContext";
+import { UserOverviewContextProvider } from "./UserOverviewContext";
 
 interface AppContextValues {
     appName: string;
@@ -23,7 +24,9 @@ const AppContextProvider = (props: { children?: ReactNode }) => {
         <ToastContextProvider>
             <AuthContextProvider>
                 <AppContext.Provider value={values}>
-                    {props.children}
+                    <UserOverviewContextProvider>
+                        {props.children}
+                    </UserOverviewContextProvider>
                 </AppContext.Provider>
             </AuthContextProvider>
         </ToastContextProvider>
