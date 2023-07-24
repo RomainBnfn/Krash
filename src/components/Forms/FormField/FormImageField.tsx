@@ -6,6 +6,7 @@ import { Field, useFormikContext } from "formik";
 import FormFieldError from "./FormFieldError";
 import { faTrash as fasTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
 
 interface FileInputProps extends Omit<FieldAttributes<any>, "type"> {
     label?: string;
@@ -30,45 +31,48 @@ const FormImageField = ({ name, label, ...fieldProps }: FileInputProps) => {
                 label={label ?? ""}
                 className={"FormField FormField-image"}
             >
-                {!src && (
-                    <Form.Control
-                        id={id}
-                        as={Field}
-                        ref={hiddenInputRef}
-                        name={name}
-                        className={"FormField-field"}
-                        value={undefined}
-                        files={displayedFile}
-                        onChange={(event) => {
-                            if (name) {
-                                const file = (event.target as any)
-                                    .files[0] as File;
-                                setDisplayedFile(file);
-                                const reader = new FileReader();
-                                reader.addEventListener("load", (event) => {
-                                    setFieldValue(
-                                        name,
-                                        (event.target as any).result,
-                                    );
-                                });
-                                reader.readAsDataURL(file);
-                                // @ts-ignore
-                                event.target.value = null;
-                            }
-                        }}
-                        type="file"
-                        capture
-                        accept="image/*"
-                        isInvalid={!!fieldError}
-                        {...fieldProps}
-                    />
-                )}
+                <Form.Control
+                    id={id}
+                    as={Field}
+                    innerRef={hiddenInputRef}
+                    name={name}
+                    className={classNames("FormField-field", {
+                        "FormField-hidden": !!src,
+                    })}
+                    value={undefined}
+                    files={displayedFile}
+                    onChange={(event) => {
+                        if (name) {
+                            const file = (event.target as any).files[0] as File;
+                            setDisplayedFile(file);
+                            const reader = new FileReader();
+                            reader.addEventListener("load", (event) => {
+                                setFieldValue(
+                                    name,
+                                    (event.target as any).result,
+                                );
+                            });
+                            reader.readAsDataURL(file);
+                            // @ts-ignore
+                            event.target.value = null;
+                        }
+                    }}
+                    type="file"
+                    capture
+                    accept="image/*"
+                    isInvalid={!!fieldError}
+                    {...fieldProps}
+                />
                 {src && (
                     <div className={"FormImageField-preview-wrapper"}>
                         <img
-                            className={"FormImageField-preview-image"}
+                            className={"FormImageField-preview-image clickable"}
                             alt="imported images"
                             src={src}
+                            onClick={() => {
+                                console.log(hiddenInputRef.current);
+                                hiddenInputRef.current?.click();
+                            }}
                         />
                         <Button
                             className={"FormImageField-preview-button"}
@@ -83,7 +87,6 @@ const FormImageField = ({ name, label, ...fieldProps }: FileInputProps) => {
                         </Button>
                     </div>
                 )}
-
                 <FormFieldError name={name} />
             </FloatingLabel>
         </div>

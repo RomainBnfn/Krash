@@ -24,6 +24,13 @@
     .FormField {
         display: flex;
         flex-direction: column;
+
+        &-hidden {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
     }
 
     &-preview {
@@ -32,7 +39,7 @@
             position: relative;
             flex-direction: column;
             flex: 1;
-            margin-top: 50px;
+            margin-top: 40px;
             align-items: center;
         }
 
