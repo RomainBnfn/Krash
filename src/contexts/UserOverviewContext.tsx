@@ -1,11 +1,10 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import { ChildrenProps } from "../models/childrenProps";
-import { onValue, ref } from "firebase/database";
-import { fireDatabase } from "../index";
-import { FireDatabaseKeys } from "../enums/fireDatabaseKeys.enum";
+import { onValue } from "firebase/database";
 import { useAuth } from "./AuthContext";
 import { UserOverviewModel } from "../models/user/userOverview.model";
 import { useFirebaseQuery } from "../hooks/useFirebaseQuery";
+import KrashService from "../services/krashService";
 
 interface UserOverviewContextModel {
     userOverview: UserOverviewModel;
@@ -23,19 +22,12 @@ export const UserOverviewContextProvider = ({ children }: ChildrenProps) => {
 
     useFirebaseQuery(() => {
         if (user?.uid) {
-            let usersRef = ref(
-                fireDatabase,
-                `${FireDatabaseKeys.USERS}/${user.uid}`,
+            return onValue(
+                KrashService.getUserKrashesReference(user.uid),
+                (data) => {
+                    setOverview(data.val());
+                },
             );
-            return onValue(usersRef, (data) => {
-                setOverview(data.val());
-            });
-
-            // const userQuery = query(
-            //     usersRef,
-            //     orderByChild("uuid"),
-            //     equalTo(user.uid),
-            // );
         }
     });
 

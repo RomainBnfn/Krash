@@ -9,6 +9,8 @@ import {
     LoginFormSchema,
 } from "../../../models/forms/krashForm.model";
 import CreateOrUpdateKrashFormContent from "./CreateOrUpdateKrashFormContent";
+import KrashService from "../../../services/krashService";
+import { useAuth } from "../../../contexts/AuthContext";
 
 interface CreateOrUpdateKrashDialogProps {
     editingKrash: Partial<LightKrashModel> | undefined;
@@ -21,6 +23,7 @@ const CreateOrUpdateKrashDialog = ({
     onClose,
 }: CreateOrUpdateKrashDialogProps) => {
     const { t } = useTranslation();
+    const { user } = useAuth();
     const isCreation = !editingKrash?.uuid;
     const initialValues: KrashFormModel = {
         name: editingKrash?.name ?? "",
@@ -38,8 +41,20 @@ const CreateOrUpdateKrashDialog = ({
                 initialValues={initialValues}
                 enableReinitialize
                 validationSchema={LoginFormSchema}
-                onSubmit={() => {
-                    // save
+                onSubmit={(values) => {
+                    if (user) {
+                        // todo hook
+                        KrashService.createOrUpdateKrash(
+                            {
+                                uuid: editingKrash?.uuid ?? "",
+                                admin: { todo: true } as any,
+                                name: values.name,
+                                logo: values.logo,
+                                description: values.description,
+                            },
+                            user,
+                        );
+                    }
                     onClose();
                 }}
             >
