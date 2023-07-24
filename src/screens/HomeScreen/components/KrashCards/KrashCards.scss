@@ -44,6 +44,7 @@
 
         &-body {
             text-align: center;
+            padding: 0;
         }
     }
 
@@ -55,9 +56,5 @@
         > * {
             margin: 0 5px;
         }
-    }
-
-    .card-body {
-        padding: 0;
     }
 }
