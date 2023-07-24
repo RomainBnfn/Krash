@@ -1,0 +1,53 @@
+.FormFieldError {
+    color: red
+}
+
+
+.FormField {
+    margin-bottom: 10px;
+
+    &-row {
+        display: flex;
+        align-items: center;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+}
+
+
+.FormImageField {
+    display: flex;
+    flex-direction: column;
+
+    .FormField {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-preview {
+        &-wrapper {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            flex: 1;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        &-image {
+            border-radius: 10px;
+            border: 1px var(--color-gray-05) solid;
+            max-width: 200px;
+            max-height: 200px;
+            padding: 3px;
+        }
+
+        &-button {
+            position: absolute;
+            bottom: -20px;
+        }
+
+    }
+}

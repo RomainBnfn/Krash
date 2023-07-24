@@ -1,0 +1,63 @@
+.KrashCards {
+    flex: 1;
+    flex-basis: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    &-title {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-cards {
+        margin: 10px 0;
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+}
+
+.KrashCard {
+    flex: unset;
+    min-width: 200px;
+    max-width: 250px;
+    margin: 10px !important;
+    border: var(--color-gray-04) 1px solid !important;
+    border-radius: 5px !important;
+
+    .card {
+        &-img-top {
+            width: 180px;
+            height: auto !important;
+            margin: 10px auto;
+            border-radius: 5px !important;
+        }
+
+        &-title {
+            text-align: center;
+        }
+
+        &-body {
+            text-align: center;
+        }
+    }
+
+    &-footer {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+
+        > * {
+            margin: 0 5px;
+        }
+    }
+
+    .card-body {
+        padding: 0;
+    }
+}

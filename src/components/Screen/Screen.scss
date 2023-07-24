@@ -1,4 +1,10 @@
 .Screen {
+    flex: 1;
+    flex-basis: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
     &-centered {
         flex: 1;
         background-color: var(--color-gray-01);

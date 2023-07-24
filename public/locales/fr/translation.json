@@ -1,9 +1,17 @@
 {
+    "COMMON": {
+        "CANCEL": "Annuler",
+        "NAME": "Nom",
+        "DESCRIPTION": "Description"
+    },
     "FORM": {
         "ERRORS": {
             "REQUIRED": "Champ obligatoire.",
             "PASSWORD_CONFIRMATION": "Les mots de passe ne correspondent pas.",
             "EMAIL_FORMAT": "Cet email n'est pas valide."
+        },
+        "IMAGE": {
+            "SELECT_A_FILE": "Sélectionner un fichier"
         },
         "BUTTONS": {
             "SUBMIT": "Confirmer"
@@ -48,7 +56,20 @@
         "CANCEL": "Annuler"
     },
     "HOME": {
-        "TITLE": "Accueil"
+        "TITLE": "Accueil",
+        "KRASHES": {
+            "TITLE": "Mes krashes",
+            "CREATE": "Créer un Krash",
+            "VIEW": "Ouvrir",
+            "EDIT": "Editer",
+            "DELETE": "Supprimer",
+            "LEAVE": "Ne plus suivre",
+            "MODAL": {
+                "EDIT_TITLE": "Edition du krash",
+                "CREATE_TITLE": "Créer un krash",
+                "LOGO": "Logo"
+            }
+        }
     },
     "ADMINISTRATION": {
         "TITLE": "Administration"

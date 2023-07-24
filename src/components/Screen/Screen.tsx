@@ -20,7 +20,7 @@ const Screen = ({ centered, className, ...props }: ScreenProps) => {
         <>
             <Navbar />
             <div
-                className={classNames(className, {
+                className={classNames("Screen", className, {
                     "Screen-centered": centered,
                     [generateBootstrapResponsiveValues("col", 12, 7)]: centered,
                 })}
