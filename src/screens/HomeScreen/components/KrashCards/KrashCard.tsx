@@ -8,6 +8,8 @@ import {
     faTrash as fasTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAuth } from "../../../../contexts/AuthContext";
+import KrashService from "../../../../services/krashService";
 
 interface KrashCardProps {
     krash: LightKrashModel;
@@ -16,7 +18,13 @@ interface KrashCardProps {
 }
 
 const KrashCard = ({ krash, onEdit }: KrashCardProps) => {
-    const { name, logo, admin, description } = krash;
+    const { uuid, name, logo, admin, description } = krash;
+    const { user } = useAuth();
+    const isAdminOfKrash = user?.uid === admin?.uid;
+    const deleteHandle = () => {
+        KrashService.deleteKrash(uuid);
+    };
+
     return (
         <Card className={"KrashCard"}>
             <Card.Img variant="top" src={logo} alt="Krash group logo" />
@@ -35,12 +43,12 @@ const KrashCard = ({ krash, onEdit }: KrashCardProps) => {
                     >
                         <FontAwesomeIcon icon={fasPen} />
                     </Button>
-                    {admin && (
-                        <Button variant="danger">
+                    {isAdminOfKrash && (
+                        <Button variant="danger" onClick={deleteHandle}>
                             <FontAwesomeIcon icon={fasTrash} />
                         </Button>
                     )}
-                    {!admin && (
+                    {!isAdminOfKrash && (
                         <Button variant="danger">
                             <FontAwesomeIcon icon={fasRightFromBracket} />
                         </Button>

@@ -70,7 +70,6 @@ const FormImageField = ({ name, label, ...fieldProps }: FileInputProps) => {
                             alt="imported images"
                             src={src}
                             onClick={() => {
-                                console.log(hiddenInputRef.current);
                                 hiddenInputRef.current?.click();
                             }}
                         />

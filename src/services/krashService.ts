@@ -1,8 +1,10 @@
-import { child, DatabaseReference, push, ref, update } from "firebase/database";
+import { DatabaseReference, ref, update } from "firebase/database";
 import { fireDatabase } from "../index";
 import { FireDatabaseKeys } from "../enums/fireDatabaseKeys.enum";
 import { LightKrashModel } from "../models/krash/lightKrash.model";
 import { LightUserModel } from "../models/user/lightUser.model";
+import FireDatabaseService from "./fireDatabaseService";
+import { getOrThrow } from "../utils/common.utils";
 
 namespace KrashService {
     /**
@@ -25,22 +27,31 @@ namespace KrashService {
         creator: LightUserModel,
     ): Promise<void> => {
         if (!krash.uuid) {
-            const newID = push(
-                child(ref(fireDatabase), FireDatabaseKeys.KRASHES),
-            ).key;
-            if (newID) {
-                krash.uuid = newID;
-            } else {
-                throw new Error();
-            }
+            krash.uuid = getOrThrow(
+                FireDatabaseService.getNewRefInArray(FireDatabaseKeys.KRASHES),
+            );
         }
-        // fct
-        let updates: any = {};
-        updates[`/${FireDatabaseKeys.KRASHES}/${krash.uuid}`] = krash;
-        updates[
-            `/${FireDatabaseKeys.USERS}/${creator.uid}/krashes/${krash.uuid}`
-        ] = krash;
+        let updates: any = {
+            [`/${FireDatabaseKeys.KRASHES}/${krash.uuid}`]: krash,
+            [`/${FireDatabaseKeys.USERS}/${creator.uid}/krashes/${krash.uuid}`]:
+                krash,
+        };
         await update(ref(fireDatabase), updates);
+    };
+
+    /**
+     * Delete a krash
+     * @param krashUid
+     */
+    export const deleteKrash = async (krashUid: string): Promise<void> => {
+        await Promise.all([
+            FireDatabaseService.remove(
+                `/${FireDatabaseKeys.KRASHES}/${krashUid}`,
+            ),
+            FireDatabaseService.remove(
+                `/${FireDatabaseKeys.USERS}/*/krashes/${krashUid}`,
+            ),
+        ]);
     };
 }
 export default KrashService;

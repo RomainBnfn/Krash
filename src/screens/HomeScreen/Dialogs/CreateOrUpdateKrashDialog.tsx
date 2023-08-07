@@ -47,7 +47,10 @@ const CreateOrUpdateKrashDialog = ({
                         KrashService.createOrUpdateKrash(
                             {
                                 uuid: editingKrash?.uuid ?? "",
-                                admin: { todo: true } as any,
+                                admin: editingKrash?.admin ?? {
+                                    uid: user.uid,
+                                    email: user.email,
+                                },
                                 name: values.name,
                                 logo: values.logo,
                                 description: values.description,
